@@ -1,0 +1,10 @@
+.imgDog{
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+}
+
+.mainBody{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
