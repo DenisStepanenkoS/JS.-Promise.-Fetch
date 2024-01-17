@@ -1,34 +1,31 @@
-
-
 const mainBlock = document.createElement('main');
-
 mainBlock.classList.add('mainBody')
-
 mainBlock.style.width = '100%';
-
-
+mainBlock.style.flexDirection = 'flex-column';
 document.body.append(mainBlock);
 
-const img = document.createElement('img');
-img.classList.add('imgDog')
-mainBlock.insertBefore(img, mainBlock.children[0]);    
 
 
-function setImg() 
+function setImg(img) 
 {fetch('https://dog.ceo/api/breeds/image/random').then((respons)=>{
     return respons.json();
 }).then((image)=>{
-    img.src = image.message
-
-   
+    img.src = image.message   
 })
 }
 
+const img = document.createElement('img');
+img.classList.add('imgDog')
+setImg(img);
+mainBlock.append(img);
+
+
 const btn = document.createElement('button');
-setImg();
 btn.addEventListener("click",()=>{
-    setImg();
+    setImg(img);
 });
 btn.textContent = 'Click';
-btn.width = '200px';
-mainBlock.insertBefore(btn, mainBlock.children[1]);
+btn.style.width = '200px';
+btn.style.margin = '15px';
+btn.style.height = '100px';
+mainBlock.append(btn);
